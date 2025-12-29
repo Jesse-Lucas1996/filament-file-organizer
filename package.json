@@ -1,0 +1,39 @@
+{
+  "name": "filament-ai",
+  "version": "1.0.0",
+  "description": "Local AI-powered file organizer",
+  "author": "Filament",
+  "main": "dist/app/main.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun build app/main.ts --outdir dist/app --target node --external electron && bun build app/preload.ts --outdir dist/app --target node --external electron && bun build app/renderer.ts --outdir dist/app --target browser && cp app/index.html app/style.css dist/app/",
+    "start": "bun run build && electron dist/app/main.js",
+    "dist": "bun run build && electron-builder"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.0.3",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "build": {
+    "appId": "com.filament.ai",
+    "productName": "Filament",
+    "files": [
+      "dist/**/*"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

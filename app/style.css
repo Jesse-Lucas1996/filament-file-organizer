@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: transparent;
+  color: #e0e0e0;
+  user-select: none;
+}
+
+.container {
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 15, 25, 0.95),
+    rgba(25, 25, 40, 0.95)
+  );
+  border-radius: 16px;
+  border: 1px solid rgba(100, 120, 255, 0.15);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-app-region: drag;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #6478ff, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  -webkit-app-region: no-drag;
+}
+
+.controls button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+#close:hover {
+  background: rgba(255, 80, 80, 0.3);
+  color: #ff6b6b;
+}
+
+.content {
+  padding: 30px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 14px 18px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 120, 255, 0.2);
+  border-radius: 10px;
+  color: #e0e0e0;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: rgba(100, 120, 255, 0.5);
+  box-shadow: 0 0 20px rgba(100, 120, 255, 0.1);
+}
+
+button {
+  padding: 14px 24px;
+  background: rgba(100, 120, 255, 0.15);
+  border: 1px solid rgba(100, 120, 255, 0.3);
+  border-radius: 10px;
+  color: #a0b0ff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: rgba(100, 120, 255, 0.25);
+  border-color: rgba(100, 120, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+}
+
+select {
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 120, 255, 0.2);
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: rgba(100, 120, 255, 0.4);
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #6478ff;
+}
+
+.primary {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(100, 120, 255, 0.3),
+    rgba(167, 139, 250, 0.3)
+  );
+  border: 1px solid rgba(100, 120, 255, 0.4);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.primary:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 120, 255, 0.4),
+    rgba(167, 139, 250, 0.4)
+  );
+  box-shadow: 0 0 30px rgba(100, 120, 255, 0.2);
+}
+
+#output {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  display: none;
+  user-select: text;
+  cursor: text;
+}
+
+#output.visible {
+  display: block;
+}
+
+#output::-webkit-scrollbar {
+  width: 6px;
+}
+
+#output::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#output::-webkit-scrollbar-thumb {
+  background: rgba(100, 120, 255, 0.3);
+  border-radius: 3px;
+}
+
+.success {
+  color: #4ade80;
+}
+.error {
+  color: #f87171;
+}
+.info {
+  color: #60a5fa;
+}

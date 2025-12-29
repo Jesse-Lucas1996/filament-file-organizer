@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filament</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="titlebar">
+        <span class="title">FILAMENT</span>
+        <div class="controls">
+          <button id="min">−</button>
+          <button id="close">×</button>
+        </div>
+      </div>
+      <div class="content">
+        <div class="input-group">
+          <input
+            type="text"
+            id="path"
+            placeholder="Select folder to organize..."
+            readonly
+          />
+          <button id="browse">Browse</button>
+        </div>
+        <div class="options">
+          <label><input type="checkbox" id="dryrun" /> Dry Run</label>
+          <select id="model"></select>
+        </div>
+        <button id="organize" class="primary">Organize</button>
+        <div id="output"></div>
+      </div>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>
